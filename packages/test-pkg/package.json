@@ -1,0 +1,38 @@
+{
+  "name": "@repo/test-pkg",
+  "version": "0.0.0",
+  "private": true,
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    "./somefile": {
+      "import": "./dist/some-file.js",
+      "require": "./dist/some-file.js",
+      "types": "./src/some-file.ts"
+    }
+  },
+  "__imports": {
+    "#utils/*": "./src/utils/*"
+  },
+  "imports": {
+    "#utils/*": "./dist/utils/*"
+  },
+  "scripts": {
+    "lint": "eslint . --max-warnings 0",
+    "generate:component": "turbo gen react-component",
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@turbo/gen": "^2.0.12",
+    "@types/node": "^20.10.6",
+    "@types/eslint": "^8.56.1",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "eslint": "^8.56.0",
+    "react": "^18.3.1",
+    "typescript": "^5.5.4"
+  }
+}

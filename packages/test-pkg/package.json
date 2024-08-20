@@ -4,24 +4,34 @@
   "private": true,
   "sideEffects": false,
   "type": "module",
+  "#====( for usage with TSC )===============================": "",
   "exports": {
     "./somefile": {
-      "import": "./dist/some-file.js",
-      "require": "./dist/some-file.js",
-      "types": "./src/some-file.ts"
+      "types": "./dist/some-file.d.ts",
+      "import": "./dist/some-file.js"
     }
-  },
-  "__imports": {
-    "#utils/*": "./src/utils/*"
   },
   "imports": {
     "#utils/*": "./dist/utils/*"
   },
+  "#====( for usage with Next.js's `transpilePackages` )====": "",
+  "_exports": {
+    "./somefile": "./src/some-file.ts"
+  },
+  "_imports": {
+    "#utils/*": "./src/utils/*"
+  },
+  "#=========================================================": "",
   "scripts": {
     "lint": "eslint . --max-warnings 0",
     "generate:component": "turbo gen react-component",
+    "#====( for usage with TSC )===================": "",
     "build": "tsc",
-    "dev": "tsc --watch"
+    "dev": "tsc --watch",
+    "#====( for Next.js's `transpilePackages` )====": "",
+    "_build": "echo 'no build needed!'",
+    "_dev": "echo no dev needed!",
+    "#=============================================": ""
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
